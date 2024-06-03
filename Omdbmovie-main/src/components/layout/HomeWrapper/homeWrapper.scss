@@ -1,0 +1,27 @@
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/variables';
+
+.homeWrapper {
+    display: grid;
+    grid-template-columns: 5fr 1fr 4fr;
+    margin: 0 auto;
+    height: 100%;
+    -webkit-animation: turn-on-overflow 0.1s ease 1.5s both;
+    animation: turn-on-overflow 0.1s ease 1.5s both;
+
+    @include customMinBreakPoint(1024) {
+        padding-left: 5%;
+    }
+
+    @include xlMinBreakPoint {
+        /* Adjust the grid columns for extra-large screens if necessary */
+    }
+
+    @include xxlMinBreakPoint {
+        /* Adjust the grid columns for extra-extra-large screens if necessary */
+    }
+
+    @include customMinBreakPoint(1400) {
+        /* Adjust the grid columns for larger screens if necessary */
+    }
+}

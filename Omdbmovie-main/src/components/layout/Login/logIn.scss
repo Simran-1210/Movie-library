@@ -1,0 +1,217 @@
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/variables';
+@import '../../../sassStyles/animations';
+
+
+.search {
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    display: block;
+    z-index: 2;
+    opacity: 0;
+    -webkit-animation: fade-up 0.9s cubic-bezier(0.165, 0.840, 0.440, 1.000) 1.2s both;
+    animation: fade-up 0.9s cubic-bezier(0.165, 0.840, 0.440, 1.000) 1.2s both;
+
+
+    @include smMinBreakPoint {
+        margin-top: 70px;
+    }
+
+    &__magnify-icon {
+        height: 16px;
+        width: 16px;
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 18px;
+        margin-top: -7px;
+        fill: $textColor;
+        transition: 0.2s ease-in;
+    }
+
+    span {
+        opacity: 1;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 24px;
+        color: $textLight1Color;
+        position: absolute;
+        top: 50%;
+        right: auto;
+        left: 47px;
+        margin-top: -12px;
+    }
+
+    
+
+}
+
+.search__input {
+    padding: 18px 44px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border-style: solid;
+    transition: 0.2s ease-in;
+
+    &--tray-open {
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+        border-color: $primaryColor;
+    }
+
+    &--tray-open ~ .search__magnify-icon {
+        fill: #c2c2c2;
+    }
+
+    &--tray-open + span {
+        color: #c2c2c2;
+    }
+
+    &:focus {
+        color: #000000;
+        outline: 0;
+        box-shadow: 0 0 0 1px $primaryColor;
+    }
+
+    &:focus ~ .search__magnify-icon {
+        fill: $primaryDark1Color;
+    }
+
+    &:disabled ~ .search__magnify-icon {
+        fill: $textLight1Color;
+    }
+
+
+}
+
+@import '../../../sassStyles/variables';
+.link {
+  text-decoration: none;
+  color: $primaryColor;
+  font-size: 1.2em;
+}
+label{
+    font-size: 1.5em;
+    font-weight: 500;
+    color: $textLight1Color;
+    margin-bottom: 8px;
+    display: block;
+
+}
+.low{
+    margin-top: 1em;
+    font-size: 1em;
+    color: $textLight1Color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+.sign-up-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: $secondaryLight1Color;
+}
+h2 {
+    font-weight: 600;
+    font-size: 3em;
+    opacity: 0;
+    color: $secondaryColor;
+    -webkit-animation: fade-up 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+            animation: fade-up 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+
+
+button {
+    position: relative;
+    // margin-top: 1em;
+    padding: 0.8em 1em;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+  }
+  
+  button:hover {
+    animation: sh0 0.5s ease-in-out both;
+  }
+  
+  @keyframes sh0 {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform: rotate(7deg) translate3d(0, 0, 0);
+    }
+  
+    50% {
+      transform: rotate(-7deg) translate3d(0, 0, 0);
+    }
+  
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+  button:hover span {
+    animation: storm 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  button::before,
+  button::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0;
+    transition: transform 0.15s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.15s cubic-bezier(0.02, 0.01, 0.47, 1);
+    z-index: -1;
+    transform: translate(100%, -25%) translate3d(0, 0, 0);
+  }
+  
+  button:hover::before,
+  button:hover::after {
+    opacity: 0.15;
+    transition: transform 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+  }
+  
+  button:hover::before {
+    transform: translate3d(50%, 0, 0) scale(0.9);
+  }
+  
+  button:hover::after {
+    transform: translate(50%, 0) scale(1.1);
+  }
+  
+  
